@@ -362,7 +362,48 @@ GROUP BY
     r.RegionName
 ORDER BY
     AverageUnitPrice, AverageUnitPrice;
+	
+	
+	
+--- Final for Data Visualization
 
 
 
 
+SELECT
+    s.OrderDate,
+    p.ProductName,
+    s.Quantity,
+    s.UnitPrice,
+    s.Sales,
+    s.Cost,
+    p.Color,
+    p.Subcategory,
+    p.Category,
+    r.RegionName,
+    r.RegionGroup,
+    sp.SalesPersonName,
+    sp.Title,
+    sp.Email
+FROM
+    sales s
+FULL JOIN product p ON s.ProductKey = p.ProductKey
+FULL JOIN salesperson sp ON s.EmployeeKey = sp.EmployeeKey
+FULL JOIN region r ON s.SalesTerritoryKey = r.SalesTerritoryKey
+WHERE
+    s.OrderDate IS NOT NULL
+    AND p.ProductName IS NOT NULL
+    AND s.Quantity IS NOT NULL
+    AND s.UnitPrice IS NOT NULL
+    AND s.Sales IS NOT NULL
+    AND s.Cost IS NOT NULL
+    AND p.Color IS NOT NULL
+    AND p.Subcategory IS NOT NULL
+    AND p.Category IS NOT NULL
+    AND r.RegionName IS NOT NULL
+    AND r.RegionGroup IS NOT NULL
+    AND sp.SalesPersonName IS NOT NULL
+    AND sp.Title IS NOT NULL
+    AND sp.Email IS NOT NULL
+ORDER BY
+    s.OrderDate;
