@@ -1,6 +1,6 @@
 /*
 
-Cleaning Data in PostgreSQL
+Cleaning Data (Sales Performance on Amazon Marketplace) in PostgreSQL
 
 */
 
